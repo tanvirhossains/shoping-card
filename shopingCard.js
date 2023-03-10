@@ -50,45 +50,46 @@ function productNumber(product, price, isIncreasing) { //M(28-3)
     }
     productInput.value = productNumber; // এটা এখানে দেয়ার কারণ হলো  যাতে করে number এর সাথে এটা যোগ হয়
     //update  total
-    const productTotal = document.getElementById(product + '-total');
+    // const productTotal = document.getElementById(product + '-total');
+    const productTotal = document.getElementById(product + '-total-price');
     productTotal.innerText = productNumber * price;
     calculateTotal()
-}
+}   
 
 function getInputValue(product) {
     const phoneInput = document.getElementById(product + '-number');
     const phoneNumber = parseInt(phoneInput.value);
     return phoneNumber;
-    
+
 }
 
-function FcalculateTotal() {
-    const phoneTotal = getInputValue('phone') * 1219;
-    const caseTotal = getInputValue('case') * 59;
+function calculateTotal() {
+    const phoneTotal = getInputValue('phone') * 1200;
+    const caseTotal = getInputValue('case') * 60;
     const subTotal = phoneTotal + caseTotal;
     const tex = subTotal / 10;
     const totalPrice = tex + subTotal;
 
     document.getElementById('sub-total').innerText = subTotal;
-    document.getElementById('tex-amount').innerText = tex;
-    document.getElementById('total-price').innerText = totalPrice;
+    document.getElementById('tax').innerText = tex;
+    document.getElementById('in-total-price').innerText = totalPrice;
 
-    console.log(total)
+    // console.log(total)
 }
 //phone increse and decrease  //M(28-3)
 document.getElementById('phone-plus').addEventListener('click', function () {
-    productNumber('phone', 1219, true)
+    productNumber('phone', 1200, true)
 })
 document.getElementById('phone-minus').addEventListener('click', function () {
-    productNumber('phone', 1219, false)
+    productNumber('phone', 1200, false)
 })
 
 
 //handle case increase decrease events
 document.getElementById('case-plus').addEventListener('click', function () {
-    productNumber('case', 59, true);
+    productNumber('case', 60, true);
 })
 
 document.getElementById('case-minus').addEventListener('click', function () {
-    productNumber('case', 59, false);
+    productNumber('case', 60, false);
 })
